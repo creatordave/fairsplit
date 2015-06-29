@@ -27,7 +27,7 @@
             $scope.total;
             $scope.mine;
             $scope.theirs;
-            $scope.oweMe;
+            $scope.oweMe = 0;
 
             $scope.$watch('total', calculate);
             $scope.$watch('mine', calculate);
@@ -54,7 +54,7 @@
         <input type="number" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs">
       </section>
 
-      <h3 class="ng-binding">They owe me Total: {{oweMe}}</h3>
+      <h3 class="ng-binding">They owe me Total: &euro;{{oweMe | currency:""}}</h3>
     </div>
 
   </di>

@@ -1,0 +1,22 @@
+{
+  "name": "fairsplit",
+  "version": "0.0.1",
+  "homepage": "https://github.com/creatordave/fairsplit",
+  "authors": [
+    "creatordave <david.mifsud89@gmail.com>"
+  ],
+  "description": "A fair way to split bills between friends",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "bootstrap": "~3.3.5"
+  }
+}

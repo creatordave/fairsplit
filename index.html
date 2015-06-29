@@ -41,13 +41,21 @@
 
 </head>
 <body ng-app="app">
-  <div class="jumbotron">
+  <div class="jumbotron" style="
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    width:100%;
+  position: fixed;
+  overflow:auto;
+">
     <h1>Fairsplit</h1>
     <p>Add total amount of bill, include your part and their part.</p>
     <p>The remainder will be split</p>
 
     <div ng-controller="mainCtrl" class="ng-scope">
       <section>
+        <p style="font-family:Georgia, 'Times', 'Times New Roman', sans"><i>((Total-(theirs+mine))÷2)+theirs</i></p>
         ((<input type="number" ng-model="total" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Total">
         – (<input type="number" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs"> +
         <input type="number" class="form-control ng-pristine ng-untouched ng-valid" ng-model="mine" placeholder="mine">)) ÷ 2) +

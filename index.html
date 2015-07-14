@@ -56,10 +56,10 @@
     <div ng-controller="mainCtrl" class="ng-scope">
       <section>
         <p style="font-family:Georgia, 'Times', 'Times New Roman', sans"><i>((Total-(theirs+mine))÷2)+theirs</i></p>
-        ((<input type="number" ng-model="total" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Total">
-        – (<input type="number" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs"> +
-        <input type="number" class="form-control ng-pristine ng-untouched ng-valid" ng-model="mine" placeholder="mine">)) ÷ 2) +
-        <input type="number" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs">
+        ((<input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="total" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Total">
+        – (<input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs"> +
+        <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control ng-pristine ng-untouched ng-valid" ng-model="mine" placeholder="mine">)) ÷ 2) +
+        <input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs">
       </section>
 
       <h3 class="ng-binding">They owe me Total: &euro;{{oweMe | currency:""}}</h3>

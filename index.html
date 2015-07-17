@@ -7,14 +7,16 @@
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script scr="https://rawgit.com/dmifsud/digit-field/master/dist/digit.field.min.js"></script>
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="Stylesheet" type="text/css"/>
   <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="Stylesheet" type="text/css"/>
+  <link href="https://rawgit.com/dmifsud/digit-field/master/dist/css/digit-field.css" rel="Stylesheet" type="text/css"/>
   <script>
 
     (function(angular){
       'use strict';
 
-      angular.module('app',[])
+      angular.module('app',['digit-field'])
         .controller('mainCtrl', function($scope){
             var calculate = function(){
               if (angular.isDefined($scope.total) && angular.isDefined($scope.mine) && angular.isDefined($scope.theirs)){
@@ -56,10 +58,14 @@
     <div ng-controller="mainCtrl" class="ng-scope">
       <section>
         <p style="font-family:Georgia, 'Times', 'Times New Roman', sans"><i>((Total-(theirs+mine))÷2)+theirs</i></p>
-        ((<input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="total" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Total">
-        – (<input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs"> +
-        <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control ng-pristine ng-untouched ng-valid" ng-model="mine" placeholder="mine">)) ÷ 2) +
-        <input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="theirs" class="form-control ng-pristine ng-untouched ng-valid" placeholder="theirs">
+        <label>Bill total:</label>
+        <digit-field ng-model="total"></digit-field>
+        <label>Theirs:</label>
+        <digit-field ng-model="theirs"></digit-field>
+        <label>Mine:</label>
+        <digit-field ng-model="mine"></digit-field>
+        <label>Theirs:</label>
+        <digit-field ng-model="theirs"></digit-field>
       </section>
 
       <h3 class="ng-binding">They owe me Total: &euro;{{oweMe | currency:""}}</h3>

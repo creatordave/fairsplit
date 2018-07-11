@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
   <title>Fairsplit</title>
   <meta charset="utf-8">
@@ -8,12 +9,17 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="https://rawgit.com/dmifsud/digit-field/master/dist/digit.field.min.js"></script>
-  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="Stylesheet" type="text/css"/>
-  <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="Stylesheet" type="text/css"/>
-  <link href="https://rawgit.com/dmifsud/digit-field/master/dist/css/digit-field.css" rel="Stylesheet" type="text/css"/>
-
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="Stylesheet" type="text/css" />
+  <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="Stylesheet" type="text/css" />
+  <link href="https://rawgit.com/dmifsud/digit-field/master/dist/css/digit-field.css" rel="Stylesheet" type="text/css" />
+  <style>
+    input[type='number'] {
+      margin-bottom: 15px;
+    }
+  </style>
   <script src="main.js"></script>
 </head>
+
 <body>
   <div ng-app="fairsplit" class="jumbotron" style="
     padding-left: 20px;
@@ -29,21 +35,34 @@
 
     <div ng-controller="mainCtrl" class="ng-scope">
       <section>
-        <p style="font-family:Georgia, 'Times', 'Times New Roman', sans"><i>((Total-(theirs+mine))÷2)+theirs</i></p>
-        <label>Bill total:</label>
-        <digit-field ng-model="total"></digit-field>
-        <label>Theirs:</label>
-        <digit-field ng-model="theirs"></digit-field>
-        <label>Mine:</label>
-        <digit-field ng-model="mine"></digit-field>
-        <label>Theirs:</label>
-        <digit-field ng-model="theirs"></digit-field>
+        <p style="font-family:Georgia, 'Times', 'Times New Roman', sans">
+          <i>((Total-(theirs+mine))÷2)+theirs</i>
+        </p>
+        <div class="apple" ng-show='iOS()'>
+          <label>Bill total:</label>
+          <digit-field ng-model="total"></digit-field>
+          <label>Theirs:</label>
+          <digit-field ng-model="theirs"></digit-field>
+          <label>Mine:</label>
+          <digit-field ng-model="mine"></digit-field>
+          <label>Theirs:</label>
+          <digit-field ng-model="theirs"></digit-field>
+        </div>
+        <div class="restoftheworld" ng-show='!iOS()'>
+          <input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="total" class="form-control"
+            placeholder="Total">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" ng-model="theirs" class="form-control"
+            placeholder="theirs">
+          <input type="number" inputmode="numeric" pattern="[0-9]*" class="form-control" ng-model="mine"
+            placeholder="mine">
+        </div>
       </section>
 
       <h3 class="ng-binding">They owe me Total: &euro;{{oweMe | currency:""}}</h3>
     </div>
 
-  </di>
+    </di>
 
 </body>
+
 </html>
